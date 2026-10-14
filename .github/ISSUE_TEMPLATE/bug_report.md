@@ -21,7 +21,7 @@ labels: bug
 
 **Environment**
 
-- `drm-primitives` version:
+- `imaji-widevine-pssh` version:
 - `rustc --version`:
 - Target platform:
 

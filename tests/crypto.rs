@@ -1,10 +1,10 @@
 //! AES-128-CBC, key generation and HKDF derivation.
 
-use drm_primitives::crypto::{
+use imaji_widevine_pssh::crypto::{
     aes_128_cbc_decrypt, aes_128_cbc_encrypt, derive_key, generate_aes_key, generate_iv,
     AES_128_KEY_LEN, AES_BLOCK_SIZE,
 };
-use drm_primitives::Error;
+use imaji_widevine_pssh::Error;
 
 /// NIST SP 800-38A, F.2.1/F.2.2 — CBC-AES128 encryption.
 ///

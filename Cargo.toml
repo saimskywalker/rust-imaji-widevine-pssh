@@ -1,13 +1,12 @@
 [package]
-name = "drm-primitives"
+name = "imaji-widevine-pssh"
 version = "0.1.0"
 edition = "2021"
 rust-version = "1.74"
 authors = ["saimskywalker"]
 license = "MIT"
 description = "Widevine PSSH box generation and parsing, AES-128-CBC segment encryption, HKDF key derivation, FairPlay certificate handling and HLS EXT-X-KEY parsing."
-repository = "https://github.com/saimskywalker/drm-primitives"
-documentation = "https://docs.rs/drm-primitives"
+repository = "https://github.com/saimskywalker/rust-imaji-widevine-pssh"
 readme = "README.md"
 keywords = ["drm", "widevine", "fairplay", "pssh", "hls"]
 categories = ["multimedia::video", "cryptography", "parser-implementations"]

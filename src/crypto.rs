@@ -5,9 +5,9 @@
 //! key from a long-lived master key.
 //!
 //! ```
-//! use drm_primitives::crypto::{aes_128_cbc_decrypt, aes_128_cbc_encrypt, generate_aes_key, generate_iv};
+//! use imaji_widevine_pssh::crypto::{aes_128_cbc_decrypt, aes_128_cbc_encrypt, generate_aes_key, generate_iv};
 //!
-//! # fn main() -> Result<(), drm_primitives::Error> {
+//! # fn main() -> Result<(), imaji_widevine_pssh::Error> {
 //! let key = generate_aes_key()?;
 //! let iv = generate_iv()?;
 //!
@@ -56,8 +56,8 @@ fn exactly_16(bytes: &[u8], what: &'static str) -> Result<[u8; 16]> {
 /// panicked on, because a silently weak key is the worst failure mode here.
 ///
 /// ```
-/// # fn main() -> Result<(), drm_primitives::Error> {
-/// let key = drm_primitives::crypto::generate_aes_key()?;
+/// # fn main() -> Result<(), imaji_widevine_pssh::Error> {
+/// let key = imaji_widevine_pssh::crypto::generate_aes_key()?;
 /// assert_eq!(key.len(), 16);
 /// # Ok(())
 /// # }
@@ -98,9 +98,9 @@ pub fn generate_iv() -> Result<[u8; AES_IV_LEN]> {
 /// Returns [`Error::InvalidLength`] if `key` or `iv` is not 16 bytes.
 ///
 /// ```
-/// use drm_primitives::crypto::aes_128_cbc_encrypt;
+/// use imaji_widevine_pssh::crypto::aes_128_cbc_encrypt;
 ///
-/// # fn main() -> Result<(), drm_primitives::Error> {
+/// # fn main() -> Result<(), imaji_widevine_pssh::Error> {
 /// let ciphertext = aes_128_cbc_encrypt(&[0x11; 16], &[0x22; 16], b"0123456789abcdef")?;
 /// // 16 bytes of input plus a full block of padding.
 /// assert_eq!(ciphertext.len(), 32);
@@ -164,9 +164,9 @@ pub fn aes_128_cbc_decrypt(key: &[u8], iv: &[u8], ciphertext: &[u8]) -> Result<V
 /// allowed — HKDF permits an empty `info`.
 ///
 /// ```
-/// use drm_primitives::crypto::derive_key;
+/// use imaji_widevine_pssh::crypto::derive_key;
 ///
-/// # fn main() -> Result<(), drm_primitives::Error> {
+/// # fn main() -> Result<(), imaji_widevine_pssh::Error> {
 /// let a = derive_key(b"master key material", b"asset-1")?;
 /// let b = derive_key(b"master key material", b"asset-1")?;
 /// let c = derive_key(b"master key material", b"asset-2")?;

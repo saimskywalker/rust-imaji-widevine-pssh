@@ -1,4 +1,4 @@
-# drm-primitives
+# imaji-widevine-pssh — Rust crate for Widevine PSSH boxes, AES-128 HLS encryption and FairPlay helpers
 
 Rust building blocks for DRM-protected streaming:
 
@@ -19,15 +19,17 @@ returns bytes.
 
 ## Install
 
+Not yet published to crates.io; depend on it from git:
+
 ```toml
 [dependencies]
-drm-primitives = "0.1"
+imaji-widevine-pssh = { git = "https://github.com/saimskywalker/rust-imaji-widevine-pssh" }
 ```
 
 ## Widevine PSSH boxes
 
 ```rust
-use drm_primitives::widevine::{PsshBox, WIDEVINE_SYSTEM_ID};
+use imaji_widevine_pssh::widevine::{PsshBox, WIDEVINE_SYSTEM_ID};
 
 let key_id = [0x0au8; 16];
 
@@ -54,7 +56,7 @@ indexing into whatever follows.
 ## AES-128 segment encryption
 
 ```rust
-use drm_primitives::crypto::{aes_128_cbc_decrypt, aes_128_cbc_encrypt, generate_aes_key, generate_iv};
+use imaji_widevine_pssh::crypto::{aes_128_cbc_decrypt, aes_128_cbc_encrypt, generate_aes_key, generate_iv};
 
 let key = generate_aes_key().unwrap();
 let iv = generate_iv().unwrap();
@@ -72,7 +74,7 @@ happened to name. A key or IV that is not 16 bytes is an error, not a panic.
 ## Key derivation
 
 ```rust
-use drm_primitives::crypto::derive_key;
+use imaji_widevine_pssh::crypto::derive_key;
 
 // Same master key and key ID, same content key — every time, on every host.
 let content_key = derive_key(b"master key material", b"asset-1").unwrap();
@@ -88,7 +90,7 @@ service able to answer for an asset it has never stored a key for.
 ## FairPlay and EXT-X-KEY
 
 ```rust
-use drm_primitives::fairplay::HlsKeyParser;
+use imaji_widevine_pssh::fairplay::HlsKeyParser;
 
 let tag = r#"#EXT-X-KEY:METHOD=SAMPLE-AES,KEYFORMAT="com.apple.streamingkeydelivery",URI="skd://asset-1""#;
 let info = HlsKeyParser::parse(tag).unwrap();

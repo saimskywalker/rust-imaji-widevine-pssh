@@ -16,10 +16,10 @@
 //! Encrypt a segment, then publish the key ID in a `pssh` box:
 //!
 //! ```
-//! use drm_primitives::crypto::{aes_128_cbc_encrypt, derive_key, generate_iv};
-//! use drm_primitives::widevine::PsshBox;
+//! use imaji_widevine_pssh::crypto::{aes_128_cbc_encrypt, derive_key, generate_iv};
+//! use imaji_widevine_pssh::widevine::PsshBox;
 //!
-//! # fn main() -> Result<(), drm_primitives::Error> {
+//! # fn main() -> Result<(), imaji_widevine_pssh::Error> {
 //! let key_id = [0x42u8; 16];
 //!
 //! // The content key is derived, so it never has to be stored — the master

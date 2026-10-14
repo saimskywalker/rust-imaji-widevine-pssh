@@ -10,9 +10,9 @@
 //!   tags equally — but the FairPlay `skd://` URI is the reason it is here.
 //!
 //! ```
-//! use drm_primitives::fairplay::HlsKeyParser;
+//! use imaji_widevine_pssh::fairplay::HlsKeyParser;
 //!
-//! # fn main() -> Result<(), drm_primitives::Error> {
+//! # fn main() -> Result<(), imaji_widevine_pssh::Error> {
 //! let tag = r#"#EXT-X-KEY:METHOD=SAMPLE-AES,KEYFORMAT="com.apple.streamingkeydelivery",URI="skd://asset-1""#;
 //! let info = HlsKeyParser::parse(tag)?;
 //!
@@ -80,8 +80,8 @@ impl FairPlayCertificate {
     /// come before the key, and then the key:
     ///
     /// ```
-    /// # fn main() -> Result<(), drm_primitives::Error> {
-    /// use drm_primitives::fairplay::FairPlayCertificate;
+    /// # fn main() -> Result<(), imaji_widevine_pssh::Error> {
+    /// use imaji_widevine_pssh::fairplay::FairPlayCertificate;
     ///
     /// // SEQUENCE {                          -- Certificate
     /// //   SEQUENCE {                        -- tbsCertificate (v1: no version)
@@ -284,9 +284,9 @@ impl FpsInitData {
     /// Returns [`Error::Truncated`] if fewer than 16 bytes are supplied.
     ///
     /// ```
-    /// use drm_primitives::fairplay::FpsInitData;
+    /// use imaji_widevine_pssh::fairplay::FpsInitData;
     ///
-    /// # fn main() -> Result<(), drm_primitives::Error> {
+    /// # fn main() -> Result<(), imaji_widevine_pssh::Error> {
     /// let blob = [0u8; 16];
     /// let parsed = FpsInitData::parse(&blob)?;
     /// assert_eq!(parsed.content_id, "AAAAAAAAAAA=");
@@ -347,9 +347,9 @@ impl HlsKeyParser {
     /// - [`Error::Hex`] if `IV` is not valid hex.
     ///
     /// ```
-    /// use drm_primitives::fairplay::HlsKeyParser;
+    /// use imaji_widevine_pssh::fairplay::HlsKeyParser;
     ///
-    /// # fn main() -> Result<(), drm_primitives::Error> {
+    /// # fn main() -> Result<(), imaji_widevine_pssh::Error> {
     /// let tag = concat!(
     ///     r#"#EXT-X-KEY:METHOD=AES-128,URI="https://keys.example/k?id=1,2","#,
     ///     "IV=0x1234567890ABCDEF1234567890ABCDEF",
