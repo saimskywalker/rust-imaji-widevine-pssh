@@ -10,9 +10,9 @@
 //! rejecting it. [`PsshBox::is_widevine`] is the Widevine check.
 //!
 //! ```
-//! use drm_primitives::widevine::{PsshBox, WIDEVINE_SYSTEM_ID};
+//! use imaji_widevine_pssh::widevine::{PsshBox, WIDEVINE_SYSTEM_ID};
 //!
-//! # fn main() -> Result<(), drm_primitives::Error> {
+//! # fn main() -> Result<(), imaji_widevine_pssh::Error> {
 //! let key_id = [0x0a; 16];
 //! let bytes = PsshBox::widevine_v1(&[key_id]).to_bytes();
 //!
@@ -70,7 +70,7 @@ impl PsshBox {
     /// are readable directly out of the box.
     ///
     /// ```
-    /// use drm_primitives::widevine::PsshBox;
+    /// use imaji_widevine_pssh::widevine::PsshBox;
     ///
     /// let bytes = PsshBox::widevine_v1(&[[1u8; 16], [2u8; 16]]).to_bytes();
     /// assert_eq!(&bytes[4..8], b"pssh");

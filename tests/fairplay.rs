@@ -1,7 +1,7 @@
 //! FairPlay certificate handling, FPS init data, and `EXT-X-KEY` parsing.
 
-use drm_primitives::fairplay::{FairPlayCertificate, FpsInitData, HlsKeyParser};
-use drm_primitives::Error;
+use imaji_widevine_pssh::fairplay::{FairPlayCertificate, FpsInitData, HlsKeyParser};
+use imaji_widevine_pssh::Error;
 
 #[test]
 fn parses_a_fairplay_key_tag() {

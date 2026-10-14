@@ -6,6 +6,14 @@ follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- **Renamed to `imaji-widevine-pssh`** (repository
+  `saimskywalker/rust-imaji-widevine-pssh`). The library path is now
+  `imaji_widevine_pssh`; the API is otherwise unchanged. The crate is not on
+  crates.io yet, so the README installs it from git and the docs.rs link is
+  gone until it is published.
+
 ### Fixed
 
 - **`FairPlayCertificate::extract_public_key` returns the public key.** It
@@ -74,5 +82,5 @@ published.
 - The Widevine licence request and response codec, which claimed to read and
   write protobuf and did neither.
 
-[Unreleased]: https://github.com/saimskywalker/drm-primitives/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/saimskywalker/drm-primitives/releases/tag/v0.1.0
+[Unreleased]: https://github.com/saimskywalker/rust-imaji-widevine-pssh/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/saimskywalker/rust-imaji-widevine-pssh/releases/tag/v0.1.0

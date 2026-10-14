@@ -1,7 +1,7 @@
 //! `pssh` box generation and parsing.
 
-use drm_primitives::widevine::{PsshBox, KEY_ID_LEN, WIDEVINE_SYSTEM_ID};
-use drm_primitives::Error;
+use imaji_widevine_pssh::widevine::{PsshBox, KEY_ID_LEN, WIDEVINE_SYSTEM_ID};
+use imaji_widevine_pssh::Error;
 
 fn key_id(byte: u8) -> [u8; KEY_ID_LEN] {
     [byte; KEY_ID_LEN]
